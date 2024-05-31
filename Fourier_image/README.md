@@ -119,7 +119,14 @@ This paper [Fourier Features Let Networks Learn High Frequency Functions in Low 
 
 
 ### Dataset: Mandelbrot Set
-<video src='https://github.com/khethan123/deep_learning/blob/main/Fourier_image/images/Mandelbrot_full.mp4' width=180></video>
+
+<div align='center'>
+    <img src='https://github.com/khethan123/deep_learning/assets/100506743/128bb9cc-bd0b-47ca-ba07-d9a505292a45'>
+</div>
+<div style="display: flex; justify-content: center;">
+    <video src='https://github.com/khethan123/deep_learning/assets/100506743/6f982f06-134d-4556-9c56-27b2f4a0c5cc' width=60/>
+</div>
+
 
 **Definition**:
 - The Mandelbrot set is defined by the set of complex numbers $c$ for which the complex numbers of the sequence $z_n$ remain bounded in absolute value. The sequence $z_n$ is defined by:
@@ -133,13 +140,17 @@ This paper [Fourier Features Let Networks Learn High Frequency Functions in Low 
 
 **Training Neural Networks**:
 - Training a neural network to recreate an image using just MLPs requires a minimum of 2.8M parameters, i.e., a neural network with at least 30 hidden layers each having around 300 neurons. This approach is feasible only for simple images and datasets, which is why we often shift to CNNs for more complex tasks.
-- But here we try to explore how without using CNNs we can train a model using FT.<br>
+- But here we try to explore how without using CNNs we can train a model using FT.
+- The below o/p image that is being displayed is after training a neural network using FT of order 4 for 10 epochs. If we train for more epochs we can get an even better model.<br>
 
 
 Before training
 <div align="center">
 	<img src="https://github.com/khethan123/deep_learning/blob/main/Fourier_image/images/before_training.png">
 </div>
+
+
+
 
 After training
 <div align="center">
