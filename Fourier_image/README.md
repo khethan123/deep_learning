@@ -1,4 +1,5 @@
-### 1. Fourier Transform Represents Images
+
+## 1. Fourier Transform Represents Images
 
 Normally, we can represent any image as a superposition of sine/cosine waves. That is, any image can be seen as being made up of a series of sinusoidal gratings, each having a different amplitude, frequency, orientation, and phase. The 2D Fourier transform in Python enables you to deconstruct an image into these constituent parts, and you can also use these constituent parts to recreate the image, in full or in part. The very nature of how light travels and propagates is described through the Fourier transform.
 
@@ -152,6 +153,10 @@ This paper [Fourier Features Let Networks Learn High Frequency Functions in Low 
 - Training a neural network to recreate an image using just MLPs requires a minimum of 2.8M parameters, i.e., a neural network with at least 30 hidden layers each having around 300 neurons. This approach is feasible only for simple images and datasets, which is why we often shift to CNNs for more complex tasks.
 - But here we try to explore how without using CNNs we can train a model using FT.
 
+---
+
+### Usage 
+run `pip install requirements.txt` to install all the required dependencies and then see [train_image]() and [train_mandelbrot]() files inorder to know how to train your own models.  
 
 ---
 
