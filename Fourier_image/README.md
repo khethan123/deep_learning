@@ -8,31 +8,15 @@ Normally, we can represent any image as a superposition of sine/cosine waves. Th
 - **Spatial Domain to Frequency Domain**: In the spatial domain, an image is represented by the intensity of pixels. The Fourier Transform converts this into the frequency domain, representing the image as a sum of sinusoidal functions.
 - **Frequency Components**: Low frequencies correspond to smooth, gradual changes in pixel intensity (large structures), while high frequencies correspond to abrupt changes (edges and fine details).
 
-**Mathematical Expression**:
-- For a 2D image \( f(x, y) \), the 2D Fourier Transform \( F(u, v) \) is given by:
-  \[
-  F(u, v) = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(x, y) e^{-i 2\pi (ux + vy)} \, dx \, dy
-  \]
-- \( F(u, v) \) contains information about the amplitude and phase of each frequency component \( (u, v) \).
-
 ---
 
 ### 2. Gratings
 
-
 **Sinusoidal Grating**:
    - A sinusoidal grating is a pattern where the intensity of the image varies sinusoidally along a specific direction.
-   - The intensity \(I(x, y)\) at any point \((x, y)\) can be described by a sinusoidal function:
-     \[
-     I(x, y) = \sin\left(\frac{2\pi}{\lambda} (x \cos \theta + y \sin \theta)\right)
-     \]
-     where:
-     - \(\lambda\) is the wavelength of the sine wave, determining the distance between successive peaks (or troughs) of the wave.
-     - \(\theta\) is the angle at which the wave is oriented relative to the x-axis.
-     - \(x\) and \(y\) are the coordinates on the grid.
 
 **Spatial Frequency**:
-   - The spatial frequency of the grating is inversely related to the wavelength \(\lambda\). It defines how many cycles (oscillations) of the wave occur per unit distance.
+   - The spatial frequency of the grating is inversely related to the wavelength $\lambda$. It defines how many cycles (oscillations) of the wave occur per unit distance.
    - A higher spatial frequency means more oscillations per unit distance, resulting in a more densely packed grating.
 
 **Purpose in Fourier Transform**:
@@ -41,18 +25,17 @@ Normally, we can represent any image as a superposition of sine/cosine waves. Th
 
 
 **Image Construction Using Gratings**:
+
+<div align="center">
+	<img src="https://github.com/khethan123/deep_learning/blob/main/Fourier_image/images/sin_grating.png">
+</div>
 - A composite image can be constructed by adding multiple sinusoidal gratings together, each with different wavelengths, orientations, and amplitudes.
 
 - **Superposition Principle**: An image can be reconstructed by superimposing multiple sinusoidal gratings with different frequencies, amplitudes, orientations, and phases.
 - **Inverse Fourier Transform**: The process of reconstructing an image from its frequency components involves the inverse Fourier Transform, which combines these sinusoidal components back into the spatial domain.
 
 **Example**:
-- In this [script](\basic_fourier), we generated a composite grating by adding several sinusoidal gratings:
-  \[
-  I(x, y) = \sum_{i} A_i \sin \left( \frac{2\pi}{\lambda_i} (x \cos \theta_i + y \sin \theta_i) \right) + \text{background}
-  \]
-- This composite grating can represent an image with specific patterns and textures.
-
+- In this [script](https://github.com/khethan123/deep_learning/tree/main/Fourier_image/basic_fourier), we generated a composite grating by adding several sinusoidal gratings:
 ---
 
 ### 3. Practical Limitations and Industry Use
@@ -84,6 +67,7 @@ Normally, we can represent any image as a superposition of sine/cosine waves. Th
 
 >[!NOTE]
 > The model we obtain when we map the i/p features into fourier series and then use them as i/p to train is actually quite good.
+> For 10 epochs, Average Loss: 0.00967364851385355 while training on mandelbrot set. Which is quite good!
 
 ---
 
@@ -135,24 +119,32 @@ This paper [Fourier Features Let Networks Learn High Frequency Functions in Low 
 
 
 ### Dataset: Mandelbrot Set
+<video src='https://github.com/khethan123/deep_learning/blob/main/Fourier_image/images/Mandelbrot_full.mp4' width=180></video>
 
 **Definition**:
-- The Mandelbrot set is defined by the set of complex numbers \( c \) for which the complex numbers of the sequence \( z_n \) remain bounded in absolute value. The sequence \( z_n \) is defined by:
-  \[
-  z_0 = 0
-  \]
-  \[
-  z_{n+1} = z_n^2 + c
-  \]
+- The Mandelbrot set is defined by the set of complex numbers $c$ for which the complex numbers of the sequence $z_n$ remain bounded in absolute value. The sequence $z_n$ is defined by:
+  
+  $z_0 = 0$<br>
+  $z_{n+1} = z_n^2 + c$
 - The modulus of a complex number is its distance to 0. In Python, this is obtained using `abs(z)` where `z` is a complex number. The sequence is considered unbounded if the modulus of one of its terms is greater than 2.
 
 **Visualization**:
-- The visual representation of the Mandelbrot set can be created by determining, for each point of a part of the complex plane, whether \( z_n \) is bounded within a range of 2 from zero. The number of iterations to reach a modulus greater than 2 can be used to determine the color to use.
+- The visual representation of the Mandelbrot set can be created by determining, for each point of a part of the complex plane, whether $z_n$ is bounded within a range of 2 from zero. The number of iterations to reach a modulus greater than 2 can be used to determine the color to use.
 
 **Training Neural Networks**:
 - Training a neural network to recreate an image using just MLPs requires a minimum of 2.8M parameters, i.e., a neural network with at least 30 hidden layers each having around 300 neurons. This approach is feasible only for simple images and datasets, which is why we often shift to CNNs for more complex tasks.
-- But here we try to explore how without using CNNs we can train a model using FT.
+- But here we try to explore how without using CNNs we can train a model using FT.<br>
 
+
+Before training
+<div align="center">
+	<img src="https://github.com/khethan123/deep_learning/blob/main/Fourier_image/images/before_training.png">
+</div>
+
+After training
+<div align="center">
+	<img src="https://github.com/khethan123/deep_learning/blob/main/Fourier_image/images/after_training_10.png">
+</div>
 ---
 
 ### Usage 
