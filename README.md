@@ -3,7 +3,7 @@
 This repository is a culmination of various deep learning projects spanning multiple domains. It serves as a playground for exploring and experimenting with different aspects of deep learning, including but not limited to Natural Language Processing (NLP), Computer Vision, and other fun experiments. The projects in this repository aim to provide practical and hands-on experience with deep learning models and techniques.
 
 > [!NOTE]
-> It's currently empty
+> It's slowly growing.
 
 ## Repository Structure
 
